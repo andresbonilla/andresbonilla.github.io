@@ -18,6 +18,12 @@
 		ul li {
 			list-style-type: circle;
 		}
+		.hidden {
+			display:none;
+		}
+		img {
+			display: block
+		}
 	</style>
 </head>
 <body>
@@ -25,38 +31,45 @@
 		<header>
 			<hgroup>
 				<h1>Andrés Bonilla</h1>
-				<h2>Solution Architect at BBH NY</h2>
+				<h2>Senior Full Stack Developer</h2>
 				<hr>
 			</hgroup>
 		</header>
 		<section>
 			<p>Born and raised in <a href="https://www.google.com/maps/place/Mayag%C3%BCez,+Puerto+Rico/@18.2019614,-67.1686406,13z/data=!3m1!4b1!4m5!3m4!1s0x8c02b24a5d501493:0xc5634c2783152042!8m2!3d18.2013463!4d-67.1451517" target="_blank">Mayagüez, Puerto Rico</a></p>
 			<p>BS in Computer Engineering from the <a href="http://www.uprm.edu/" target="_blank">University of Puerto Rico at Mayagüez</a> (2009)</p>
-			<p>I live in NYC and work at <a href="http://www.bartleboglehegarty.com/newyork/" target="_blank">BBH NY</a>.</p>
+			<p>I live in NYC.</p>
 		</section>
 		<section>
-			<p>Here's some stuff I've helped make:</p>
+			<p>Here's some work from the last few years:</p>
 			<ul>
 				<li>
-					<a href="https://www.kraken.com/" target="_blank">Kraken</a>
+					<a id="quibi-trigger" href="#">Quibi Instagram AR Filter</a>
+					<img id="quibi-gif" class="hidden" src="assets/img/quibi.gif">
 				</li>
 				<li>
-					<a href="https://sheraton.marriott.com/" target="_blank">Sheraton</a>
+					<a href="https://www.fanduel.com/sportsequinox" target="_blank">Fanduel Sports Equinox Site</a>
 				</li>
 				<li>
-					<a href="https://westin.marriott.com/" target="_blank">Westin</a>
+					<a href="https://www.kraken.com/" target="_blank">Kraken Marketing Site Rebuild</a>
 				</li>
 				<li>
-					<a href="https://w-hotels.marriott.com/" target="_blank">W Hotels</a>
+					<a href="https://sheraton.marriott.com/" target="_blank">Sheraton Brand Site</a>
 				</li>
 				<li>
-					<a href="http://www.neaq.org/" target="_blank">New England Aquarium</a>
+					<a href="https://westin.marriott.com/" target="_blank">Westin Brand Site</a>
 				</li>
 				<li>
-					<a href="http://www.oribe.com/" target="_blank">Oribe</a>
+					<a href="https://w-hotels.marriott.com/" target="_blank">W Hotels Brand Site</a>
 				</li>
 				<li>
-					<a href="http://www.meredith.com/" target="_blank">Meredith</a>
+					<a href="http://www.neaq.org/" target="_blank">New England Aquarium Site</a>
+				</li>
+				<li>
+					<a href="http://www.oribe.com/" target="_blank">Oribe Magento E-Commerce Site</a>
+				</li>
+				<li>
+					<a href="http://www.meredith.com/" target="_blank">Meredith Corporate Site</a>
 				</li>
 			</ul>
 			<br>
@@ -66,5 +79,22 @@
 		<section>
 		</section>
 	</article>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script>
+	<script>
+		function preload(arrayOfImages) {
+			$(arrayOfImages).each(function(){
+					$('<img/>')[0].src = this;
+			});
+		}
+		preload(['assets/img/quibi.gif']);
+		$(function() {
+			$('#quibi-trigger').on('click', function(e) {
+				e.preventDefault()
+				$('#quibi-gif').toggleClass('hidden')
+			})
+		})
+	</script>
 </body>
 </html>
