@@ -11,7 +11,10 @@
 			font-weight: 300;
 			padding: 20px;
 		}
-		h1 { font-size:50px;margin-bottom:0; }
+		h1 {
+			font-size:50px;
+			margin-bottom:0;
+		}
 		h2 { margin-top:0; }
 		ul {
 			padding: 0 0 0 20px;
@@ -25,6 +28,19 @@
 		img {
 			display: block
 		}
+		button {
+			background: transparent;
+		}
+	</style>
+	<style id="editable-styles">
+		body {
+			background-color: #ffffff;
+		}
+		* { color: #000000; }
+		header { border-bottom: 1px solid #000000; }
+		button {
+    	border: 1px solid #000000;
+		}
 	</style>
 </head>
 <body>
@@ -33,7 +49,6 @@
 			<hgroup>
 				<h1>Andrés Bonilla</h1>
 				<h2>Full Stack Engineer</h2>
-				<hr>
 			</hgroup>
 		</header>
 		<section>
@@ -71,8 +86,14 @@
 				</li>
 			</ul>
 			<br>
-			<p>Here's my <a href="https://www.linkedin.com/in/andresbonilla" target="_blank">linkedin</a>, <a href="https://github.com/andresbonilla" target="_blank">github</a>, and <a href="assets/pdf/Resume_Andres-Bonilla.pdf" download>resume</a>.</p>
+			<p>Here's my <a href="https://github.com/andresbonilla" target="_blank">github</a>, <a href="https://www.linkedin.com/in/andresbonilla" target="_blank">linkedin</a>, and <a href="assets/pdf/Resume_Andres-Bonilla.pdf" download>resume</a>.</p>
 			<p>I like to use Node, React and Cucumber.</p>
+			<br>
+		</section>
+		<section id="update-background">
+			<p>Change my background color</p>
+			<input type="color" />
+			<button>Do it</button>
 		</section>
 	</article>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -84,13 +105,42 @@
 					$('<img/>')[0].src = this;
 			});
 		}
+
+		function invertHex(hex) {
+			return (Number(`0x1${hex}`) ^ 0xFFFFFF).toString(16).substr(1).toUpperCase()
+		}
+
+		function getOppositeColor(originalColor) {
+			if (!RegExp('^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$', 'g').test(originalColor)) {
+				throw new Error('Invalid hex color');
+			}
+			return `#${invertHex(originalColor.slice(1))}`;
+		}
+
+		function setBackgroundColor(newBackgroundColor) {
+			const newForegroundColor = getOppositeColor(newBackgroundColor);
+			const editableStyleTag = $('style#editable-styles');
+			editableStyleTag.html(`
+				body { background-color: ${newBackgroundColor}; }
+				* { color: ${newForegroundColor}; }
+				header { border-bottom: 1px solid ${newForegroundColor}; }
+				button { border: 1px solid ${newForegroundColor}; }
+			`);
+		}
+
 		preload(['assets/img/quibi.gif']);
 		$(function() {
+			const $colorChangeButton = $('section#update-background button');
+			const $colorChangeColorField = $('section#update-background input[type="color"]');
 			$('#quibi-trigger').on('click', function(e) {
 				e.preventDefault()
 				$('#quibi-gif').toggleClass('hidden')
 			})
+			$colorChangeButton.on('click', function() {
+				setBackgroundColor($colorChangeColorField.val());
+			});
 		})
+		
 	</script>
 </body>
 </html>
