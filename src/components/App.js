@@ -36,7 +36,7 @@ const App = () => {
     // set up websocket connection with infura and get current background color
     const web3 = new Web3(
       new Web3.providers.WebsocketProvider(
-        `wss://mainnet.infura.io/ws/v3/${process.env.REACT_APP_INFURA_KEY}`
+        `wss://ropsten.infura.io/ws/v3/${process.env.REACT_APP_INFURA_KEY}`
       )
     )
 
@@ -64,6 +64,7 @@ const App = () => {
     setAnnouncement({
       account: event.returnValues._from.toString(),
       color: event.returnValues._newColor.toString().slice(0, 8).replace('0x', '#'),
+      weiCostString: event.returnValues.cost.toString(),
       transactionHash: event.transactionHash
     })
   }

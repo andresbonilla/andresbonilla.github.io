@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Web3 from 'web3'
 
 const Announcement = ({
   announcementData,
@@ -16,7 +17,7 @@ const Announcement = ({
       color: backgroundColor,
     }}
   >
-    {`${announcementData.account.slice(0, 10)}... just paid 0.001 ETH to set the background color to ${announcementData.color}`}
+    {`${announcementData.account.slice(0, 10)}... just paid ${Web3.utils.fromWei(announcementData.weiCostString)} ETH to set the background color to ${announcementData.color}`}
   </a>
 )
 
