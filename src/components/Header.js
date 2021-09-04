@@ -2,12 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 const Header = ({ foregroundColor }) => (
-  <header style={{
-    borderBottom: `1px solid ${foregroundColor}`
-  }}>
+  <header style={{ borderBottom: `4px solid ${foregroundColor}`}}>
     <hgroup>
       <h1>Andrés Bonilla</h1>
-      <h2>Full Stack Engineer</h2>
+      <h2>Senior Full Stack Engineer</h2>
     </hgroup>
   </header>
 )

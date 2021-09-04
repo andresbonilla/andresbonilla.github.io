@@ -33,7 +33,7 @@ const ColorPickerForm = ({
   }
 
   return (
-    <section id="color-picker-form" style={{ border: `1px solid ${foregroundColor}` }}>
+    <section id="color-picker-form" style={{ border: `2px solid ${foregroundColor}` }}>
       <h3>{`Change my site's background color for ${Web3.utils.fromWei(weiCostString)} ETH`}</h3>
       <input
         type="color"

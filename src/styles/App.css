@@ -17,8 +17,8 @@ body {
 }
 
 header {
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  padding-bottom: 0;
+  margin-bottom: 30px;
 }
 
 h1 {
@@ -73,10 +73,12 @@ article * {
 
 #color-picker-form button {
   margin-left: 20px;
-  height: 40px;
   vertical-align: top;
   border: 0;
-  border-radius: 5px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 29px;
 }
 
 #color-picker-form h3 {
