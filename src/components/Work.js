@@ -5,7 +5,7 @@ const Work = () => (
     <p>Here are some projects I've worked on:</p>
     <ul>
       <li>
-        <a href="https://www.getraincoat.com/" target="_blank" rel="noopener noreferrer">Raincoat</a>
+        <a href="https://www.raincoat.com/" target="_blank" rel="noopener noreferrer">Raincoat</a>
       </li>
       <li>
         <a href="https://www.fanduel.com/sportsequinox" target="_blank" rel="noopener noreferrer">Fanduel Sports Equinox</a>
@@ -18,9 +18,6 @@ const Work = () => (
       </li>
       <li>
         <a href="https://w-hotels.marriott.com/" target="_blank" rel="noopener noreferrer">W Hotels</a>
-      </li>
-      <li>
-        <a href="https://www.neaq.org/" target="_blank" rel="noopener noreferrer">New England Aquarium</a>
       </li>
     </ul>
   </section>
