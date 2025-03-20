@@ -44,7 +44,7 @@ const ColorPickerForm = ({
       <button onClick={onSetColorClick} style={{
         backgroundColor: foregroundColor,
         color: backgroundColor
-      }}>Take my money</button>
+      }}>Do it</button>
     </section>
   )
 }

@@ -6,7 +6,6 @@ import { contrastingColor } from '../modules/color'
 import Notifications from './Notifications'
 import Header from './Header'
 import Bio from './Bio'
-import Work from './Work'
 import ColorPickerForm from './ColorPickerForm' 
 import Confetti from './Confetti'
 import '../styles/App.css'
@@ -153,7 +152,6 @@ const App = () => {
       )}
       <Header foregroundColor={foregroundColor} />
       <Bio />
-      <Work />
       {weiCostString && <ColorPickerForm
         backgroundColor={backgroundColor}
         foregroundColor={foregroundColor}
